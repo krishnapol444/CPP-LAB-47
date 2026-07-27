@@ -5,9 +5,9 @@ int area(int,int);
 float area(float);
 int main()
 {
-    cout<<"Area for side=5"<<area(5);
-    cout<<"area for lenght=5,breadth=10"<<area(5,10);
-    cout<<"area for circle"<<area(3.5f);
+    cout<<"\n Area for side=5 \n"<<area(5);
+    cout<<"\n area for lenght=5,breadth=10 \n"<<area(5,10);
+    cout<<"\n area for circle \n"<<area(3.5f);
     return 0;
 }
 int area(int side)
