@@ -3,11 +3,11 @@
 using namespace std;
 class Student
 {
-    public:
+    private:
     string name;
     int rollno;
     float marks;
-   // public:
+    public:
     void inputDetails()
     {
         cout<<"Enter Student Name:";
