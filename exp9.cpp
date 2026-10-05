@@ -4,8 +4,8 @@ const double pi=3.14;
 class Shape
 {
     public:
-    virtual double calculateArea()=0;
-    virtual double calculatePerimeter()=0;
+    virtual double calculateArea() const = 0;
+    virtual double calculatePerimeter() const = 0;
 };
 class Circle: public Shape
 {
@@ -15,11 +15,11 @@ class Circle: public Shape
     Circle(double rad): radius(rad) {}
     double calculateArea() const override
     {
-        return pi * pow(radius, 2); 
+        return pi * pow(radius, 2);
     }
     double calculatePerimeter() const override
     {
-        return 2 * pi * radius; 
+        return 2 * pi * radius;
     }
 };
 class Rectangle: public Shape
