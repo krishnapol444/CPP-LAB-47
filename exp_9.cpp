@@ -1,81 +1,93 @@
-#include<iostream>
-#include<cmath>
-const double pi=3.14;
+#include <iostream>
+#include <cmath>
+const double PI = 3.14159;
+
 class Shape
 {
-    public:
+public:
     virtual double calculateArea() const = 0;
     virtual double calculatePerimeter() const = 0;
 };
-class Circle: public Shape
+
+class Circle : public Shape
 {
-    private:
+private:
     double radius;
-    public:
+
+public:
     Circle(double rad): radius(rad) {}
+
     double calculateArea() const override
     {
-        return pi * pow(radius, 2);
+        return PI * pow(radius, 2);
     }
-    //double calculatePerimeter() const override
-    //{
-     //   return 2 * pi * radius;
-   // }     
+
+   double calculatePerimeter() const override
+    {
+        return 2 * PI * radius;
+    }
+    
 };
-class Rectangle: public Shape
+
+class Rectangle : public Shape
 {
-    private:
+private:
     double length;
     double width;
-    public:
+
+public:
     Rectangle(double len, double wid): length(len), width(wid) {}
+
     double calculateArea() const override
     {
         return length * width;
     }
+
     double calculatePerimeter() const override
     {
         return 2 * (length + width);
     }
 };
-class Triangle: public Shape
+
+class Triangle : public Shape
 {
-    private:
+private:
     double side1;
     double side2;
     double side3;
-    public:
+
+public:
     Triangle(double s1, double s2, double s3): side1(s1), side2(s2), side3(s3) {}
+
     double calculateArea() const override
     {
         double s = (side1 + side2 + side3) / 2;
         return sqrt(s * (s - side1) * (s - side2) * (s - side3));
     }
+
     double calculatePerimeter() const override
     {
         return side1 + side2 + side3;
     }
 };
+
 int main()
 {
     Circle circle(7.0);
     Rectangle rectangle(4.2, 8.0);
     Triangle triangle(4.0, 4.0, 3.2);
 
-    //Shape* shape = &circle;
-
-    //std::cout << "Shape pointer to Circle:" << std::endl;
-    std::cout << "Area: " << Shape->calculateArea() << std::endl;
-    std::cout << "Perimeter: " << Shape->calculatePerimeter() << std::endl;
-
-    std::cout << "\nCircle:" << std::endl;
+    std::cout << "Circle: " << std::endl;
     std::cout << "Area: " << circle.calculateArea() << std::endl;
     std::cout << "Perimeter: " << circle.calculatePerimeter() << std::endl;
-    std::cout << "\nRectangle:" << std::endl;
+
+    std::cout << "\nRectangle: " << std::endl;
     std::cout << "Area: " << rectangle.calculateArea() << std::endl;
     std::cout << "Perimeter: " << rectangle.calculatePerimeter() << std::endl;
-    std::cout << "\nTriangle:" << std::endl;
+
+    std::cout << "\nTriangle: " << std::endl;
     std::cout << "Area: " << triangle.calculateArea() << std::endl;
     std::cout << "Perimeter: " << triangle.calculatePerimeter() << std::endl;
+
     return 0;
 }
